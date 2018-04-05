@@ -22,13 +22,9 @@ defmodule WakandaNameGenerator.NameGenerator do
 		match_name(next_names, name)
 	end
 
-	defp match_char(wakanda_name, []), do: wakanda_name
-	defp match_char(wakanda_name, [current_char | remaining_chars]) do
-		wakanda_name <> get_key_val(current_char) |> match_char(remaining_chars)
-	end
-	defp match_char([current_char | remaining_chars]) do
-		"" <> get_key_val(current_char) |> match_char(remaining_chars)
-	end
+	defp match_char(name, []), do: name
+	defp match_char(name, [char | next_chars]), do: name <> get_key_val(char) |> match_char(next_chars)
+	defp match_char([char | next_chars]), do: "" <> get_key_val(char) |> match_char(next_chars)
 
 	defp get_key_val(key), do: WakandaNameKey.key()[key]
 
