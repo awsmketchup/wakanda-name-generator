@@ -1,11 +1,14 @@
-# WakandaNameGenerator
+# Wakanda Name Generator
 
-**TODO: Add description**
+** Tranform your name into a Wakandan name
+
+## Documentation
+
+API documentation can be found at [https://hexdocs.pm/wakanda_name_generator](https://hexdocs.pm/wakanda_name_generator)
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `wakanda_name_generator` to your list of dependencies in `mix.exs`:
+ADD `wakanda_name_generator` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
@@ -15,7 +18,11 @@ def deps do
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/wakanda_name_generator](https://hexdocs.pm/wakanda_name_generator).
+## Basics
+```
+# Generate your Wakandan name
 
+iex(3)> WakandaNameGenerator.NameGenerator.gen_name("ralak")
+"shikatakame"
+
+```
