@@ -1,18 +1,19 @@
 defmodule WakandaNameGenerator do
-  @moduledoc """
-  Documentation for WakandaNameGenerator.
-  """
+	use Application
 
-  @doc """
-  Hello world.
+	def start(_type, _args) do
+		import Supervisor.Spec, warn: false
 
-  ## Examples
+		children = [
+			{Registry, keys: :unique, name: Registry.WakandaNameGenerator},
+			{DynamicSupervisor, name: WakandaNameGenerator.NameGenSupervisor, strategy: :one_for_one}
+		]
 
-      iex> WakandaNameGenerator.hello
-      :world
+		opts = [
+			strategy: :one_for_one,
+			name: WakandaNameGenerator.Supervisor
+		]
 
-  """
-  def hello do
-    :world
-  end
+		Supervisor.start_link(children, opts)
+	end
 end
