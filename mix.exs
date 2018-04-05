@@ -5,8 +5,18 @@ defmodule WakandaNameGenerator.MixProject do
     [
       app: :wakanda_name_generator,
       version: "0.1.0",
+	  description: "Wakanda Name Generator - transform your name into a Wakandan name",
+	  source_url: "https://github.com/samuelralak/wakanda-name-generator",
+	  homepage_url: "https://github.com/samuelralak/wakanda-name-generator",
       elixir: "~> 1.6",
+	  maintainers: ["Samuel Ralak"],
       start_permanent: Mix.env() == :prod,
+	  package: [
+		  maintainers: ["Samuel Ralak"],
+		  licenses: ["MIT"],
+		  links: %{github: "https://github.com/samuelralak/wakanda-name-generator"},
+		  files: ~w(lib) ++ ~w(mix.exs README.md)
+	  ],
       deps: deps()
     ]
   end
